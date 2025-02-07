@@ -6,6 +6,7 @@
 #include <timer>
 #include <strafe_stats>
 #include <timer_medals>
+#include <spec_list>
 
 
 new g_iVault;
@@ -41,7 +42,7 @@ public client_putinserver(id)
 
 public hud_menu(id)
 {
-	new menu = menu_create( "\yHud Menu!:", "hud_menu_handler" );
+	new menu = menu_create( "\r[FWO] \d- \wHud Menu:", "hud_menu_handler" );
 	new item[64];
 
 	format(item, charsmax(item), "\wSpeed %s", get_bool_speed(id)?"\y[ON]":"\r[OFF]");
@@ -53,6 +54,8 @@ public hud_menu(id)
 	format(item, charsmax(item), "\wTimer %s", get_bool_timer(id)?"\y[ON]":"\r[OFF]");
 	menu_additem( menu, item);
 	format(item, charsmax(item), "\wMedals %s", get_bool_medals(id)?"\y[ON]":"\r[OFF]");
+	menu_additem( menu, item);
+	format(item, charsmax(item), "\wSpeclist %s", get_bool_speclist(id) ? "\y[ON]" : "\r[OFF]");
 	menu_additem( menu, item);
 	format(item, charsmax(item), "\wStats %s", get_bool_stats(id)?"\y[ON]":"\r[OFF]");
 	menu_additem( menu, item);
@@ -89,6 +92,10 @@ public hud_menu_handler(id, menu, item)
 			toggle_medals(id);
 		}
 		case 5:
+		{
+			toggle_speclist(id);
+		}
+		case 6:
 		{
 			toggle_stats(id);
 		}
