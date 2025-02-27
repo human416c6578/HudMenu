@@ -17,7 +17,7 @@ new g_iVault;
 public plugin_init()
 {
 	register_plugin(PLUGIN, VERSION, AUTHOR);
-    register_clcmd("say /hud", "hud_menu");
+	register_clcmd("say /hud", "hud_menu");
 }
 
 public plugin_natives()
@@ -86,7 +86,7 @@ public hud_menu_handler(id, menu, item)
 		case 7:toggle_pre(id);
 		case 8:
 		{
-		   	menu_destroy(menu);
+			menu_destroy(menu);
 			return PLUGIN_HANDLED;
 		}
 	}
@@ -125,7 +125,7 @@ public LoadSettings(id)
 		toggle_timer(id);
 	if(!str_to_num(values[4]))
 		toggle_medals(id);
-	if(str_to_num(values[5]))
+	if(get_bool_speclist(id) != str_to_num(values[5]))
 		toggle_speclist(id);
 	if(str_to_num(values[6]))
 		toggle_stats(id);
