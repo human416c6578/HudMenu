@@ -6,5 +6,5 @@
 
 #pragma library spec_list
 
-native toggle_speclist(id)
-native get_bool_speclist(id)
+native toggle_speclist(id);
+native get_bool_speclist(id);
